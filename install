@@ -12,6 +12,14 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 cd $DIR
 
+if [ ! -e Release ]; then
+	unzip Release.zip -d ./
+fi
+
+if [ ! -e Debug ]; then
+	unzip Debug.zip -d ./
+fi
+
 if [ ! -e c:/lib ]; then
 	mkdir c:/lib
 fi
