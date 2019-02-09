@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# get script directory
+SOURCE="${BASH_SOURCE[0]}"
+DIR="$( dirname "$SOURCE" )"
+while [ -h "$SOURCE" ]
+do 
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+  DIR="$( cd -P "$( dirname "$SOURCE"  )" && pwd )"
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+cd $DIR
+
+if [ ! -e c:/lib ]; then
+	mkdir c:/lib
+fi
+
+if [ ! -e c:/lib/cef ]; then
+	mkdir c:/lib/cef
+fi
+
+cp -rf . c:/lib/cef/
